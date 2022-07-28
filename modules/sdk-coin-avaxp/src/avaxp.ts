@@ -16,7 +16,7 @@ import {
 import * as AvaxpLib from './lib';
 import { AvaxpSignTransactionOptions, TransactionFee, ExplainTransactionOptions } from './iface';
 import _ from 'lodash';
-import { BN } from 'avalanche';
+import { BN, BinTools } from 'avalanche';
 
 export class AvaxP extends BaseCoin {
   protected readonly _staticsCoin: Readonly<StaticsBaseCoin>;
@@ -84,8 +84,9 @@ export class AvaxP extends BaseCoin {
   }
 
   verifyAddress(params: VerifyAddressOptions): boolean {
-    // TODO(STLX-16574): verifyTransaction
-    return true;
+    const bintools = BinTools.getInstance();
+    const address = bintools.parseAddress(params.address, 'P');
+    return address !== undefined;
   }
 
   /**
@@ -197,6 +198,10 @@ export class AvaxP extends BaseCoin {
     } catch (e) {
       throw new Error(`Invalid transaction: ${e.message}`);
     }
+  }
+
+  recoverySignature(message: Buffer, signature: Buffer): Buffer {
+    return AvaxpLib.Utils.recoverySignature(this._staticsCoin.network as AvalancheNetwork, message, signature);
   }
 
   async signMessage(key: KeyPair, message: string | Buffer): Promise<Buffer> {

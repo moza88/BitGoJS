@@ -1,7 +1,7 @@
 {
-  "name": "@bitgo/sdk-coin-polygon",
-  "version": "1.0.1",
-  "description": "BitGo SDK coin library for Polygon",
+  "name": "@bitgo/sdk-coin-aca",
+  "version": "1.0.0",
+  "description": "BitGo SDK coin library for Acala",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
   "scripts": {
@@ -24,7 +24,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/BitGo/BitGoJS.git",
-    "directory": "modules/sdk-coin-polygon"
+    "directory": "modules/sdk-coin-aca"
   },
   "lint-staged": {
     "*.{js,ts}": [
@@ -41,20 +41,11 @@
     ]
   },
   "dependencies": {
-    "@bitgo/abstract-eth": "^1.0.1",
-    "@bitgo/sdk-coin-eth": "^1.1.0",
     "@bitgo/sdk-core": "^1.1.0",
-    "@bitgo/statics": "^7.0.0",
-    "@ethereumjs/common": "^2.4.0",
-    "@ethereumjs/tx": "^3.3.0",
-    "bignumber.js": "^9.0.0",
-    "ethereumjs-abi": "^0.6.5",
-    "bip32": "^2.0.6",
-    "lodash": "^4.17.14"
+    "@bitgo/statics": "^7.0.0"
   },
   "devDependencies": {
     "@bitgo/sdk-api": "^1.1.0",
-    "@bitgo/sdk-test": "^1.0.1",
-    "secp256k1": "^4.0.2"
+    "@bitgo/sdk-test": "^1.0.1"
   }
 }
