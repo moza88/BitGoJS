@@ -8,5 +8,5 @@ coverage.lcov
 package-lock.json
 # Sandbox folder for testing
 lab/
-.vscode/
-.env
+#.vscode/
+#.env
